@@ -1,0 +1,138 @@
+@import 'libs/normalize';
+
+body {
+  background-color: #fafafa;
+}
+
+.todo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 530px;
+  height: 500px;
+  background-color: #fff;
+  box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.01), 0px 25px 40px rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #ebebeb;
+
+  &__header {
+    background-color: #db4c3f;
+    padding: 20px 30px;
+
+    h4 {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 500;
+    }
+  }
+
+  &__add-field {
+    display: flex;
+    border-bottom: 1px solid #f4f4f4;
+
+    input {
+      border: 0;
+      font-size: 18px;
+      padding: 20px;
+      flex: 1;
+
+      &::-webkit-input-placeholder {
+        color: #bfbfbf;
+      }
+      &:-ms-input-placeholder {
+        color: #bfbfbf;
+      }
+      &::-ms-input-placeholder {
+        color: #bfbfbf;
+      }
+      &::placeholder {
+        color: #bfbfbf;
+      }
+    }
+
+    &-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      background-color: transparent;
+      width: 65px;
+      height: 65px;
+      cursor: pointer;
+
+      svg {
+        position: relative;
+        right: -1px;
+      }
+
+      &:hover {
+        background-color: #fbfbfb;
+        svg {
+          path {
+            fill: #202020;
+          }
+        }
+      }
+    }
+  }
+
+  &__list {
+    &-item {
+      $self: &;
+      display: flex;
+      padding: 20px;
+      border-bottom: 1px solid #f4f4f4;
+
+      &--completed {
+        text-decoration: line-through;
+        #{$self}-check {
+          svg {
+            display: block;
+          }
+        }
+
+        #{$self}-check,
+        #{$self}-check:hover {
+          background-color: #db4c3f;
+        }
+      }
+
+      &-check {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #db4c3f;
+        border-radius: 30px;
+        height: 24px;
+        width: 24px;
+        margin-right: 15px;
+        cursor: pointer;
+
+        svg {
+          display: none;
+        }
+
+        &:hover {
+          background-color: #f8e0de;
+        }
+      }
+
+      &-remove:hover {
+        cursor: pointer;
+
+        svg {
+          path {
+            fill: #202020;
+          }
+        }
+      }
+
+      p {
+        font-size: 18px;
+        flex: 1;
+      }
+    }
+  }
+}
